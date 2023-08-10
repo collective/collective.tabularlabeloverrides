@@ -19,12 +19,18 @@ class ITabularLabelOverridesMarker(Interface):
 class ITabularLabelOverrides(model.Schema):
     """ """
 
-    project = schema.TextLine(
-        title=_("Project"),
-        description=_("Give in a project name"),
+    label_overrides = schema.Tuple(
+        title=_(
+            u'Label Overrides',
+        ),
+        description=_(
+            u'',
+        ),
+        value_type=schema.TextLine(title=u'Label Override'),
+        # default='',
         required=False,
+        readonly=False,
     )
-
 
 @implementer(ITabularLabelOverrides)
 @adapter(ITabularLabelOverridesMarker)
@@ -33,11 +39,11 @@ class TabularLabelOverrides(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, "project"):
-            return self.context.project
-        return None
+    def label_overrides(self):
+        if safe_hasattr(self.context, "label_overrides"):
+            return self.context.label_overrides
+        return tuple()
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @label_overrides.setter
+    def label_overrides(self, value):
+        self.context.label_overrides = value
