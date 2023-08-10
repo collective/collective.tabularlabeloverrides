@@ -21,16 +21,17 @@ class ITabularLabelOverrides(model.Schema):
 
     label_overrides = schema.Tuple(
         title=_(
-            u'Label Overrides',
+            "Label Overrides",
         ),
         description=_(
-            u'',
+            "",
         ),
-        value_type=schema.TextLine(title=u'Label Override'),
+        value_type=schema.TextLine(title="Label Override"),
         # default='',
         required=False,
         readonly=False,
     )
+
 
 @implementer(ITabularLabelOverrides)
 @adapter(ITabularLabelOverridesMarker)
