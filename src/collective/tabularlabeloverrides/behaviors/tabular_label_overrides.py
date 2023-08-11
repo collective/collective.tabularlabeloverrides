@@ -28,7 +28,7 @@ class ITabularLabelOverrides(model.Schema):
             "Label Overrides",
         ),
         description=_(
-            "",
+            "One override mapping per line. Use the format: 'toreplace|replacewith'",
         ),
         value_type=schema.TextLine(title="Label Override"),
         # default='',

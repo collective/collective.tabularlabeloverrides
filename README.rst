@@ -60,6 +60,14 @@ and then running ``bin/buildout``
 Or install it via ``pip install collective.tabularlabeloverrides``
 
 
+Usage
+-----
+
+- Define some label overrides mappings on a Collection
+- change the display view to the new ``Tabular label override view``
+
+
+
 Authors
 -------
 
