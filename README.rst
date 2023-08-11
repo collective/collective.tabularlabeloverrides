@@ -36,28 +36,10 @@ Allows to override the labels for the tabular view on a Collection.
 Features
 --------
 
-- Can be bullet points
+- provides a behavior for Collections with a Label Overrides field
+- These labels will override existing labels in the tabular view
+- this addon depends on collective.taxonomy to allow both working together
 
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
 
 
 Installation
@@ -75,11 +57,13 @@ Install collective.tabularlabeloverrides by adding it to your buildout::
 
 and then running ``bin/buildout``
 
+Or install it via ``pip install collective.tabularlabeloverrides``
+
 
 Authors
 -------
 
-Provided by awesome people ;)
+Maik Derstappen - md@derico.de
 
 
 Contributors
@@ -101,8 +85,7 @@ Contribute
 Support
 -------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+If you are having issues, please let us know by opening an issue on GitHub.
 
 
 License

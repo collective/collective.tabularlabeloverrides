@@ -6,11 +6,24 @@
 
  <!-- -*- extra stuff goes here -*- -->
 
-  <browser:page
-    name="tabular-label-overrides-view"
-    for="plone.app.contenttypes.interfaces.ICollection"
+  <!-- <browser:page
+    name="tabular_view"
+    for="plone.dexterity.interfaces.IDexterityContainer"
     class=".folder_view.FolderView"
     permission="zope2.View"
+    template="listing_tabular.pt"
+    menu="plone_displayviews"
+    title="Tabular view"
+    /> -->
+
+  <browser:page
+    name="tabular_label_override_view"
+    for="plone.app.contenttypes.behaviors.collection.ISyndicatableCollection"
+    class=".folder_view.CollectionView"
+    permission="zope2.View"
+    template="listing_tabular.pt"
+    menu="plone_displayviews"
+    title="Tabular label override view"
     layer="collective.tabularlabeloverrides.interfaces.ICollectiveTabularlabeloverridesLayer"
     />
 

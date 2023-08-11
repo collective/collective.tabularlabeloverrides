@@ -18,5 +18,6 @@
         marker=".tabular_label_overrides.ITabularLabelOverridesMarker"
         />
 
+    <adapter factory=".tabular_label_overrides.LabelOverridesValidator" />
 
 </configure>
