@@ -2,10 +2,10 @@ Changelog
 =========
 
 
-1.0a2 (unreleased)
+1.0b1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- general functions
 
 
 1.0a1 (2023-08-11)
