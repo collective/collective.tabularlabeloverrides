@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b2 (unreleased)
+1.0b2 (2023-08-11)
 ------------------
 
 - enable tabular_label_overrides behavior on Collection by default

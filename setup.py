@@ -16,7 +16,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.tabularlabeloverrides",
-    version="1.0b2.dev0",
+    version="1.0b2",
     description="Allows to override the labels for the tabular view on a Collection.",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
