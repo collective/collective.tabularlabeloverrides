@@ -39,6 +39,8 @@ class ITabularLabelOverrides(model.Schema):
 
 class LabelOverridesValidator(validator.SimpleFieldValidator):
     def validate(self, value):
+        if not value:
+            return
         for lo in value:
             if not lo:
                 continue
