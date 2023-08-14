@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b3 (unreleased)
+1.0b3 (2023-08-14)
 ------------------
 
 - Fix label override validator, when no override is provided.
