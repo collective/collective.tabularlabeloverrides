@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b4 (unreleased)
+1.0b4 (2023-08-17)
 ------------------
 
 - Fix label override view, when no override is provided.
