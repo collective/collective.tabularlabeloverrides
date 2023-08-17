@@ -3,11 +3,9 @@
 from collective.tabularlabeloverrides import _
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
-from plone.autoform import directives
 from plone.supermodel import model
 from Products.CMFPlone.utils import safe_hasattr
 from z3c.form import validator
-from z3c.form.validator import SimpleFieldValidator
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
@@ -46,10 +44,16 @@ class LabelOverridesValidator(validator.SimpleFieldValidator):
                 continue
             lo_parts = lo.split("|")
             if len(lo_parts) != 2:
-                raise Invalid(_(u'Label overrides in wrong format, use "toreplace|replacewith" format!'))
+                raise Invalid(
+                    _(
+                        'Label overrides in wrong format, use "toreplace|replacewith" format!'
+                    )
+                )
 
 
-validator.WidgetValidatorDiscriminators(LabelOverridesValidator, field=ITabularLabelOverrides["label_overrides"])
+validator.WidgetValidatorDiscriminators(
+    LabelOverridesValidator, field=ITabularLabelOverrides["label_overrides"]
+)
 
 
 @implementer(ITabularLabelOverrides)

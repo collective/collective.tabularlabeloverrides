@@ -5,7 +5,7 @@ from collective.tabularlabeloverrides.testing import (
 from collective.tabularlabeloverrides.testing import (
     COLLECTIVE_TABULARLABELOVERRIDES_INTEGRATION_TESTING,
 )
-from collective.tabularlabeloverrides.views.folder_view import IFolderView
+from collective.tabularlabeloverrides.views.folder_view import ICollectionView
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -22,28 +22,35 @@ class ViewsIntegrationTest(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer["portal"]
         setRoles(self.portal, TEST_USER_ID, ["Manager"])
-        api.content.create(self.portal, "Folder", "other-folder")
-        api.content.create(self.portal, "Document", "front-page")
+        api.content.create(self.portal, "Folder", "folder1")
+        api.content.create(self.portal, "Collection", "collection1")
 
     def test_tabular_label_overrides_view_is_registered(self):
         view = getMultiAdapter(
-            (self.portal["other-folder"], self.portal.REQUEST),
-            name="tabular-label-overrides-view",
+            (self.portal["collection1"], self.portal.REQUEST),
+            name="tabular_label_override_view",
         )
-        self.assertTrue(IFolderView.providedBy(view))
+        self.assertTrue(ICollectionView.providedBy(view))
 
     def test_tabular_label_overrides_view_not_matching_interface(self):
         view_found = True
         try:
             view = getMultiAdapter(
-                (self.portal["front-page"], self.portal.REQUEST),
-                name="tabular-label-overrides-view",
+                (self.portal["folder1"], self.portal.REQUEST),
+                name="tabular_label_override_view",
             )
         except ComponentLookupError:
             view_found = False
         else:
-            view_found = IFolderView.providedBy(view)
+            view_found = ICollectionView.providedBy(view)
         self.assertFalse(view_found)
+
+    def test_tabular_label_overrides_view_rendering(self):
+        view = getMultiAdapter(
+            (self.portal["collection1"], self.portal.REQUEST),
+            name="tabular_label_override_view",
+        )
+        view()
 
 
 class ViewsFunctionalTest(unittest.TestCase):

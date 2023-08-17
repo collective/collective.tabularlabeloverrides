@@ -7,8 +7,6 @@ from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
 
-import collective.tabularlabeloverrides
-
 
 class CollectiveTabularlabeloverridesLayer(PloneSandboxLayer):
 
@@ -24,6 +22,12 @@ class CollectiveTabularlabeloverridesLayer(PloneSandboxLayer):
         import plone.restapi
 
         self.loadZCML(package=plone.restapi)
+        import collective.taxonomy
+
+        self.loadZCML(package=collective.taxonomy)
+
+        import collective.tabularlabeloverrides
+
         self.loadZCML(package=collective.tabularlabeloverrides)
 
     def setUpPloneSite(self, portal):
