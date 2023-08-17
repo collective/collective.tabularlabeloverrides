@@ -24,12 +24,13 @@ class CollectionView(TaxonomyCollectionView):
             to the field (Plone default labels).
         """
         if safe_hasattr(self.context, "label_overrides"):
-            for loverride in self.context.label_overrides:
-                if not loverride:
-                    continue
-                source_label, target_label = loverride.split("|")
-                if source_label != field:
-                    continue
-                return target_label
+            if self.context.label_overrides:
+                for loverride in self.context.label_overrides:
+                    if not loverride:
+                        continue
+                    source_label, target_label = loverride.split("|")
+                    if source_label != field:
+                        continue
+                    return target_label
 
         return super().tabular_field_label(field)
